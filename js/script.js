@@ -35,13 +35,13 @@ const INVITACION = {
 
   eventos: {
     civil: {
-      horario: "4:00 p. m. – 5:00 p. m.",
+      horario: "3:40 p. m. – 5:00 p. m.",
       lugar: "CLUB AOPIP OFICIAL - SURCO",
       direccion: "Av.Casuarinas 450, Santiago de Surco",
       maps: "https://maps.app.goo.gl/4VRptw1821XmzfLu7?g_st=iw",
     },
     religiosa: {
-      horario: "7:00 p. m. – 7:45 p. m.",
+      horario: "6:40 p. m. – 7:45 p. m.",
       lugar: "Parroquia San Francisco de Asis",
       direccion: "Jiron colón 324, Barranco",
       maps: "https://maps.app.goo.gl/zTGMeN2kFCEbBq2W8?g_st=iw",
@@ -49,7 +49,7 @@ const INVITACION = {
     recepcion: {
       horario: "8:00 p. m. – 2:00 a. m.",
       lugar: "CLUB AOPIP OFICIAL - SURCO",
-      direccion: "Av.Casuarinas 450, Santiao de Surco",
+      direccion: "Av.Casuarinas 450, Santiago de Surco",
       maps: "https://maps.app.goo.gl/4VRptw1821XmzfLu7?g_st=iw",
     },
   },
