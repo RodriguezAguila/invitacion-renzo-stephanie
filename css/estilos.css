@@ -1,0 +1,2171 @@
+:root {
+  --champagne: #f2e5c6;
+  --arena-dorada: #f2d9a0;
+  --borgona: #75162d;
+  --vino-profundo: #3b010b;
+  --marfil: #fffaf0;
+  --papel: #f8f0df;
+  --tinta: #33272a;
+  --dorado: #b88b42;
+  --dorado-claro: #d7bb7d;
+  --blanco: #ffffff;
+  --verde-suave: #77806b;
+  --sombra: 0 18px 45px rgba(59, 1, 11, 0.16);
+  --sombra-fuerte: 0 24px 70px rgba(25, 0, 5, 0.32);
+  --borde: 1px solid rgba(184, 139, 66, 0.46);
+  --radio: 22px;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --manuscrita: "Great Vibes", "Brush Script MT", cursive;
+  --sans: "Montserrat", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--tinta);
+  background:
+    radial-gradient(
+      circle at 20% 5%,
+      rgba(184, 139, 66, 0.07),
+      transparent 22rem
+    ),
+    repeating-linear-gradient(
+      35deg,
+      rgba(117, 22, 45, 0.018) 0 1px,
+      transparent 1px 6px
+    ),
+    var(--papel);
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.bloqueo-scroll {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--arena-dorada);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--vino-profundo);
+  font-size: clamp(2.6rem, 11vw, 4.7rem);
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+address {
+  font-style: normal;
+}
+
+.enlace-saltar {
+  position: fixed;
+  z-index: 10000;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.7rem 1rem;
+  transform: translateY(-160%);
+  border-radius: 0.5rem;
+  color: var(--blanco);
+  background: var(--vino-profundo);
+  text-decoration: none;
+  transition: transform 180ms ease;
+}
+
+.enlace-saltar:focus {
+  transform: translateY(0);
+}
+
+.contenedor {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.seccion {
+  position: relative;
+  padding: 5.5rem 0;
+}
+
+.seccion-clara {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(242, 217, 160, 0.42),
+      transparent 19rem
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.76),
+      rgba(242, 229, 198, 0.64)
+    ),
+    var(--papel);
+}
+
+.seccion-arena {
+  background:
+    linear-gradient(rgba(242, 229, 198, 0.65), rgba(253, 247, 236, 0.85)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(59, 1, 11, 0.025) 0 1px,
+      transparent 1px 6px
+    );
+}
+
+.seccion-vino {
+  overflow: hidden;
+  color: rgba(255, 250, 240, 0.9);
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(242, 217, 160, 0.11),
+      transparent 20rem
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(242, 217, 160, 0.08),
+      transparent 25rem
+    ),
+    var(--vino-profundo);
+}
+
+.seccion-vino h2,
+.seccion-vino h3 {
+  color: var(--champagne);
+}
+
+.seccion-vino .etiqueta-seccion {
+  color: var(--arena-dorada);
+}
+
+.etiqueta-seccion {
+  margin-bottom: 0.55rem;
+  color: var(--borgona);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.linea-dorada {
+  display: block;
+  width: 4.5rem;
+  height: 1px;
+  margin: 1.35rem 0;
+  background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+}
+
+.ramita-divisora {
+  margin: 1.25rem auto 2rem;
+  color: var(--dorado);
+  font-family: var(--serif);
+  font-size: 2rem;
+}
+
+.boton {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.78rem 1.35rem;
+  border: 1px solid var(--dorado);
+  border-radius: 999px;
+  color: var(--blanco);
+  background: var(--borgona);
+  box-shadow: 0 9px 24px rgba(59, 1, 11, 0.16);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+  background: var(--vino-profundo);
+  box-shadow: 0 13px 28px rgba(59, 1, 11, 0.22);
+}
+
+.boton[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+/* =====================================================
+   PANTALLA INICIAL: SOBRE MATRIMONIAL PREMIUM V3
+   Enfoque fotográfico: menos paneles planos, más papel,
+   luz, textura, pliegues y sombras de contacto.
+===================================================== */
+.pantalla-apertura {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(1rem, 3.2vh, 2.25rem) 1rem;
+  isolation: isolate;
+  background: radial-gradient(
+    ellipse at 50% 38%,
+    #f2ebe3 0%,
+    #eee6dd 43%,
+    #e7ddd3 72%,
+    #dbcec1 100%
+  );
+}
+
+/* Fondo marfil cálido, cercano al de la fotografía de referencia */
+.pantalla-apertura::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.52;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E"),
+    radial-gradient(
+      circle at 17% 13%,
+      rgba(255, 255, 255, 0.58),
+      transparent 28%
+    ),
+    radial-gradient(circle at 82% 82%, rgba(116, 86, 65, 0.07), transparent 38%);
+  background-size:
+    220px 220px,
+    100% 100%,
+    100% 100%;
+  background-blend-mode: soft-light, normal, normal;
+}
+
+.escena-sobre {
+  position: relative;
+  display: flex;
+  width: min(58rem, 93vw, 68svh);
+  align-items: center;
+  flex-direction: column;
+  perspective: 1900px;
+}
+
+/* Sombra corta y cálida, pegada al sobre. Evita el gran halo gris. */
+.escena-sobre::before {
+  position: absolute;
+  z-index: -1;
+  top: 1.4%;
+  right: 1.8%;
+  bottom: 3.55rem;
+  left: 1.8%;
+  content: "";
+  border-radius: 5px;
+  background: rgba(69, 42, 29, 0.14);
+  filter: blur(13px);
+  transform: translate(10px, 14px) scale(0.992);
+  pointer-events: none;
+}
+
+.sobre-cerrado {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: visible;
+  border: 1px solid rgba(58, 19, 24, 0.66);
+  border-radius: 3px;
+  background: #632a33;
+  perspective: 1900px;
+  transform-style: preserve-3d;
+  isolation: isolate;
+  box-shadow:
+    0 30px 34px rgba(53, 31, 22, 0.25),
+    0 12px 16px rgba(55, 27, 22, 0.17),
+    0 3px 4px rgba(39, 12, 13, 0.24),
+    -1px -1px 0 rgba(255, 233, 220, 0.1),
+    inset 0 1px 0 rgba(255, 236, 224, 0.09),
+    inset -1px 0 0 rgba(34, 5, 10, 0.25),
+    inset 0 -2px 0 rgba(31, 5, 9, 0.3);
+
+  --papel-fino: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='5' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+  --papel-grueso: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.19' numOctaves='4' seed='27' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.20'/%3E%3C/svg%3E");
+}
+
+/* Bisel mínimo de cartulina real */
+.sobre-cerrado::before {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  content: "";
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 4px 0 9px rgba(255, 225, 210, 0.025),
+    inset -5px 0 10px rgba(25, 2, 7, 0.14),
+    inset 0 4px 8px rgba(255, 239, 229, 0.025),
+    inset 0 -7px 13px rgba(25, 2, 7, 0.16);
+}
+
+/* Canto inferior, apenas visible */
+.sobre-cerrado::after {
+  position: absolute;
+  z-index: -1;
+  right: 0.45%;
+  bottom: -0.28rem;
+  left: 0.45%;
+  height: 0.38rem;
+  content: "";
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(180deg, #4b1820 0%, #351017 100%);
+  box-shadow: 0 4px 5px rgba(45, 22, 17, 0.18);
+  transform: translateZ(-2px);
+  pointer-events: none;
+}
+
+/* =====================================================
+   PAPEL BASE. La mayor parte del sobre es una sola pieza
+   continua para evitar el aspecto de figura geométrica.
+===================================================== */
+.cuerpo-sobre {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  transform: translateZ(0);
+  background-image:
+    var(--papel-fino), var(--papel-grueso),
+    radial-gradient(
+      ellipse at 50% -8%,
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 36%
+    ),
+    radial-gradient(
+      ellipse at 14% 54%,
+      rgba(255, 255, 255, 0.025) 0%,
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 87% 63%,
+      rgba(25, 2, 7, 0.12) 0%,
+      transparent 45%
+    ),
+    linear-gradient(180deg, #76353e 0%, #6b2f38 45%, #602730 74%, #552029 100%);
+  background-size:
+    160px 160px,
+    280px 280px,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-blend-mode: soft-light, soft-light, normal, normal, normal, normal;
+  box-shadow:
+    inset 0 0 54px rgba(26, 3, 8, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Fibra + microvariaciones de iluminación, como papel fotografiado */
+.cuerpo-sobre::before {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.46;
+  mix-blend-mode: soft-light;
+  background:
+    repeating-radial-gradient(
+      ellipse at 33% 24%,
+      rgba(255, 255, 255, 0.08) 0 0.45px,
+      transparent 0.7px 4px
+    ),
+    repeating-linear-gradient(
+      103deg,
+      rgba(255, 255, 255, 0.018) 0 1px,
+      transparent 1px 5px
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(20, 2, 6, 0.23) 100%
+    );
+}
+
+.cuerpo-sobre::after {
+  position: absolute;
+  z-index: 11;
+  inset: 0.18rem;
+  content: "";
+  pointer-events: none;
+  border: 1px solid rgba(255, 225, 211, 0.055);
+  border-radius: 2px;
+  box-shadow: inset 0 0 30px rgba(20, 2, 7, 0.08);
+}
+
+/* =====================================================
+   PLIEGUES. Ya no son tres grandes bloques de distinto
+   color: solo pequeñas variaciones de luz y líneas de unión.
+===================================================== */
+.pliegue {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.pliegue::before,
+.pliegue::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+/* Lateral izquierdo: apenas recibe algo más de luz */
+.pliegue-izquierdo {
+  z-index: 2;
+  clip-path: polygon(0 0, 50% 57%, 0 100%);
+  background:
+    linear-gradient(135deg, rgba(255, 231, 220, 0.04) 0%, transparent 47%),
+    linear-gradient(110deg, transparent 35%, rgba(29, 3, 8, 0.055) 100%);
+}
+
+/* Unión desde la esquina superior izquierda */
+.pliegue-izquierdo::after {
+  top: 0;
+  left: 0;
+  width: 91.5%;
+  height: 1px;
+  transform: rotate(56.7deg);
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 226, 211, 0.055) 0%,
+    rgba(49, 9, 15, 0.28) 35%,
+    rgba(37, 5, 11, 0.47) 67%,
+    rgba(255, 233, 220, 0.035) 72%,
+    transparent 100%
+  );
+  box-shadow: 0 1px 1px rgba(255, 229, 214, 0.035);
+}
+
+/* Lateral derecho: ligeramente más oscuro, como en la referencia */
+.pliegue-derecho {
+  z-index: 2;
+  clip-path: polygon(100% 0, 50% 57%, 100% 100%);
+  background:
+    linear-gradient(225deg, rgba(20, 2, 6, 0.095) 0%, transparent 48%),
+    linear-gradient(250deg, rgba(24, 2, 7, 0.045) 0%, transparent 60%);
+}
+
+.pliegue-derecho::after {
+  top: 0;
+  right: 0;
+  width: 91.5%;
+  height: 1px;
+  transform: rotate(-56.7deg);
+  transform-origin: right center;
+  background: linear-gradient(
+    270deg,
+    rgba(255, 225, 211, 0.035) 0%,
+    rgba(46, 7, 13, 0.27) 35%,
+    rgba(31, 4, 9, 0.47) 67%,
+    rgba(255, 232, 218, 0.025) 72%,
+    transparent 100%
+  );
+  box-shadow: 0 1px 1px rgba(255, 229, 214, 0.025);
+}
+
+/* Pliegue inferior: prácticamente el mismo papel. Solo sombreado de volumen. */
+.pliegue-inferior {
+  z-index: 3;
+  clip-path: polygon(0 100%, 50% 57%, 100% 100%);
+  background:
+    radial-gradient(
+      ellipse at 50% 99%,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 44%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(39, 6, 12, 0.035) 0%,
+      rgba(22, 2, 7, 0.115) 100%
+    );
+}
+
+/* Las dos costuras inferiores: finas, con sombra + mínimo brillo al lado */
+.pliegue-inferior::before {
+  left: 0;
+  bottom: 0;
+  width: 76.6%;
+  height: 1px;
+  transform: rotate(-49.3deg);
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 232, 219, 0.028),
+    rgba(45, 7, 13, 0.25) 50%,
+    rgba(31, 4, 9, 0.4) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 -1px 1px rgba(255, 229, 214, 0.022);
+}
+
+.pliegue-inferior::after {
+  right: 0;
+  bottom: 0;
+  width: 76.6%;
+  height: 1px;
+  transform: rotate(49.3deg);
+  transform-origin: right center;
+  background: linear-gradient(
+    270deg,
+    rgba(255, 232, 219, 0.025),
+    rgba(45, 7, 13, 0.24) 50%,
+    rgba(31, 4, 9, 0.39) 82%,
+    transparent 100%
+  );
+  box-shadow: 0 -1px 1px rgba(255, 229, 214, 0.02);
+}
+
+/* =====================================================
+   SOLAPA. Es la única pieza claramente superpuesta.
+   El volumen viene de la sombra de contacto, no de cambiar
+   radicalmente el color.
+===================================================== */
+.solapa-sobre {
+  position: absolute;
+  z-index: 5;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 57.4%;
+  transform: rotateX(0deg) translateZ(5px);
+  transform-origin: 50% 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.solapa-sobre::before,
+.solapa-sobre::after {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  content: "";
+  backface-visibility: hidden;
+}
+
+.solapa-sobre::before {
+  background-image:
+    var(--papel-fino), var(--papel-grueso),
+    radial-gradient(
+      ellipse at 47% 0%,
+      rgba(255, 255, 255, 0.13) 0%,
+      transparent 36%
+    ),
+    radial-gradient(
+      ellipse at 10% 16%,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 88% 53%,
+      rgba(25, 2, 7, 0.09) 0%,
+      transparent 45%
+    ),
+    linear-gradient(180deg, #87434d 0%, #7b3943 43%, #71313a 72%, #672a33 100%);
+  background-size:
+    160px 160px,
+    280px 280px,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-blend-mode: soft-light, soft-light, normal, normal, normal, normal;
+  filter: drop-shadow(0 1px 0.6px rgba(31, 4, 9, 0.55))
+    drop-shadow(0 5px 5px rgba(30, 3, 8, 0.18));
+}
+
+/* Cara posterior al abrir */
+.solapa-sobre::after {
+  transform: rotateX(180deg) translateZ(1px);
+  background-image:
+    var(--papel-fino), linear-gradient(180deg, #682c35 0%, #552029 100%);
+  background-size:
+    160px 160px,
+    100% 100%;
+  background-blend-mode: soft-light, normal;
+  box-shadow: inset 0 -28px 42px rgba(22, 2, 7, 0.15);
+}
+
+/* Texto sobre la solapa */
+.contenido-solapa {
+  position: absolute;
+  z-index: 2;
+  top: 9.1%;
+  right: 7.2%;
+  left: 7.2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  backface-visibility: hidden;
+  transform: translateZ(7px);
+}
+
+.frase-sobre {
+  display: flex;
+  max-width: 94%;
+  flex-direction: column;
+  margin: 0 0 clamp(0.66rem, 1.75vw, 1.05rem);
+  color: #f3dfb4;
+  font-family: var(--sans);
+  font-size: clamp(0.56rem, 1.62vw, 0.94rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.42;
+  text-transform: uppercase;
+  text-shadow:
+    0 -1px 0 rgba(255, 249, 220, 0.1),
+    0 1.2px 2px rgba(38, 5, 11, 0.38);
+}
+
+.frase-sobre span {
+  display: block;
+}
+
+.nombres-sobre {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  color: #efd79d;
+  font-family: var(--manuscrita);
+  font-size: clamp(3.35rem, 11.25vw, 6.45rem);
+  font-weight: 400;
+  line-height: 0.71;
+  text-shadow:
+    0 -1px 0 rgba(255, 248, 216, 0.2),
+    0 1px 0 rgba(117, 73, 25, 0.34),
+    0 2.5px 4px rgba(38, 4, 10, 0.28);
+}
+
+.nombres-sobre > span:first-child,
+.nombres-sobre > span:last-child {
+  display: block;
+  white-space: nowrap;
+}
+
+.ampersand-sobre {
+  margin: clamp(0.13rem, 0.7vw, 0.38rem) 0 clamp(0.03rem, 0.35vw, 0.18rem);
+  color: #e4c37d;
+  font-size: 0.51em;
+  line-height: 0.77;
+}
+
+.fecha-sobre {
+  position: absolute;
+  z-index: 7;
+  bottom: 5.25%;
+  left: 50%;
+  width: 100%;
+  margin: 0;
+  transform: translateX(-50%) translateZ(6px);
+  color: #ebca8d;
+  font-family: var(--sans);
+  font-size: clamp(0.62rem, 1.7vw, 0.98rem);
+  font-weight: 500;
+  letter-spacing: 0.31em;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1.3px 2px rgba(36, 4, 9, 0.4);
+}
+
+/* =====================================================
+   SELLO DE CERA. Borde suave e irregular, sin picos de
+   engranaje. Más grande y con una sombra de contacto real.
+===================================================== */
+.sello-sobre {
+  position: absolute;
+  z-index: 13;
+  top: 57.25%;
+  left: 50%;
+  display: grid;
+  width: clamp(4.65rem, 18.2%, 7rem);
+  aspect-ratio: 1;
+  place-items: center;
+  padding: 0;
+  transform: translate(-50%, -50%) rotate(-2.2deg) translateZ(23px);
+  border: 0;
+  border-radius: 48% 52% 46% 54% / 53% 47% 55% 45%;
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 250, 210, 0.92) 0 4%,
+      transparent 17%
+    ),
+    radial-gradient(
+      circle at 36% 31%,
+      rgba(255, 235, 155, 0.42) 0 9%,
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 58% 62%,
+      rgba(126, 74, 10, 0.1) 0 22%,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 50% 48%,
+      #eccb70 0%,
+      #d7a53f 48%,
+      #ae7118 76%,
+      #77450c 100%
+    );
+  box-shadow:
+    inset 4px 4px 7px rgba(255, 244, 185, 0.6),
+    inset -5px -6px 9px rgba(92, 46, 4, 0.51),
+    inset 0 0 0 1px rgba(255, 239, 165, 0.18);
+  filter: drop-shadow(0 10px 5px rgba(28, 8, 3, 0.43))
+    drop-shadow(0 2px 1px rgba(32, 9, 3, 0.34));
+  cursor: pointer;
+  appearance: none;
+  transition:
+    transform 220ms ease,
+    filter 220ms ease;
+}
+
+.sello-sobre::before,
+.sello-sobre::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+/* Reborde prensado */
+.sello-sobre::before {
+  inset: 12.5%;
+  border: 2px solid rgba(94, 50, 6, 0.74);
+  border-radius: 51% 49% 52% 48% / 48% 53% 47% 52%;
+  box-shadow:
+    0 0 0 2px rgba(255, 232, 151, 0.31),
+    inset 2px 2px 3px rgba(255, 244, 185, 0.42),
+    inset -2px -2px 4px rgba(83, 40, 4, 0.4),
+    0 1px 1px rgba(75, 38, 4, 0.24);
+}
+
+/* Ondulación superficial de la cera */
+.sello-sobre::after {
+  inset: 3.5%;
+  border-radius: 45% 55% 52% 48% / 55% 44% 56% 45%;
+  background:
+    radial-gradient(
+      circle at 29% 21%,
+      rgba(255, 249, 205, 0.38),
+      transparent 18%
+    ),
+    radial-gradient(circle at 73% 72%, rgba(98, 51, 5, 0.13), transparent 27%),
+    radial-gradient(
+      ellipse at 50% 8%,
+      rgba(255, 236, 164, 0.13),
+      transparent 30%
+    );
+  box-shadow: inset 0 0 0 1px rgba(255, 244, 193, 0.12);
+}
+
+.ornamento-sello {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 32%;
+  aspect-ratio: 1;
+  transform: rotate(45deg) translateZ(2px);
+  border: 2px solid rgba(87, 44, 5, 0.8);
+  background: rgba(236, 190, 87, 0.14);
+  box-shadow:
+    0 0 0 1px rgba(255, 232, 145, 0.29),
+    inset 1px 1px 1px rgba(255, 245, 186, 0.22),
+    inset -1px -1px 1px rgba(82, 40, 4, 0.27);
+}
+
+.ornamento-sello::before,
+.ornamento-sello::after {
+  position: absolute;
+  content: "";
+  border: 1.5px solid rgba(87, 44, 5, 0.76);
+}
+
+.ornamento-sello::before {
+  inset: 22%;
+  border-radius: 50%;
+}
+
+.ornamento-sello::after {
+  inset: -33%;
+  transform: rotate(45deg);
+  border-radius: 50%;
+}
+
+.sello-sobre:hover,
+.sello-sobre:focus-visible {
+  transform: translate(-50%, -50%) rotate(-0.5deg) translateZ(28px) scale(1.035);
+  filter: brightness(1.035) saturate(1.02)
+    drop-shadow(0 12px 6px rgba(28, 8, 3, 0.45))
+    drop-shadow(0 2px 1px rgba(32, 9, 3, 0.35));
+}
+
+.sello-sobre:focus-visible {
+  outline: 3px solid #b68a3e;
+  outline-offset: 0.42rem;
+}
+
+.indicacion-sobre {
+  margin: clamp(0.92rem, 2.3vh, 1.45rem) 0 0;
+  color: #766b61;
+  font-family: var(--sans);
+  font-size: clamp(0.68rem, 1.65vw, 0.98rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.56);
+}
+
+/* =====================================================
+   ANIMACIÓN. Conserva el comportamiento existente.
+===================================================== */
+.pantalla-apertura.abierta {
+  pointer-events: none;
+  animation: ocultar-apertura 300ms 1.12s ease forwards;
+}
+
+.pantalla-apertura.abierta .sello-sobre {
+  animation: quitar-sello 340ms ease forwards;
+}
+
+.pantalla-apertura.abierta .solapa-sobre {
+  animation: abrir-solapa 760ms 220ms cubic-bezier(0.62, 0, 0.28, 1) forwards;
+}
+
+.pantalla-apertura.abierta .sobre-cerrado {
+  animation: retirar-sobre 400ms 930ms ease forwards;
+}
+
+.pantalla-apertura.abierta .indicacion-sobre {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+@keyframes quitar-sello {
+  0% {
+    transform: translate(-50%, -50%) rotate(-2.2deg) translateZ(23px) scale(1);
+    opacity: 1;
+  }
+  48% {
+    transform: translate(-50%, -57%) rotate(4deg) translateZ(31px) scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -76%) rotate(12deg) translateZ(33px) scale(0.72);
+    opacity: 0;
+  }
+}
+
+@keyframes abrir-solapa {
+  0% {
+    transform: rotateX(0deg) translateZ(5px);
+  }
+  50% {
+    transform: rotateX(96deg) translateZ(3px);
+  }
+  100% {
+    transform: rotateX(180deg) translateZ(1px);
+  }
+}
+
+@keyframes retirar-sobre {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(2.4rem) scale(0.95);
+    opacity: 0;
+  }
+}
+
+@keyframes ocultar-apertura {
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .pantalla-apertura {
+    padding-inline: 0.75rem;
+  }
+
+  .escena-sobre {
+    width: min(23rem, 92vw, 68svh);
+  }
+
+  .contenido-solapa {
+    top: 8.8%;
+    right: 5.5%;
+    left: 5.5%;
+  }
+
+  .frase-sobre {
+    margin-bottom: 0.56rem;
+    letter-spacing: 0.155em;
+  }
+
+  .nombres-sobre {
+    font-size: clamp(3.05rem, 14.7vw, 3.9rem);
+    line-height: 0.74;
+  }
+
+  .fecha-sobre {
+    bottom: 5.05%;
+  }
+}
+
+/* Portada */
+.portada-principal {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  padding: 5rem 1rem 6.5rem;
+  isolation: isolate;
+  text-align: center;
+}
+
+.imagen-portada,
+.velo-portada {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.imagen-portada {
+  object-fit: cover;
+  object-position: center;
+}
+
+.velo-portada {
+  z-index: -1;
+  background:
+    linear-gradient(to bottom, rgba(25, 0, 5, 0.34), rgba(59, 1, 11, 0.65)),
+    radial-gradient(circle at center, transparent, rgba(25, 0, 5, 0.35));
+}
+
+.marco-portada {
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(242, 217, 160, 0.67);
+  border-radius: 160px 160px 28px 28px;
+  pointer-events: none;
+}
+
+.contenido-portada {
+  width: min(780px, 100%);
+  padding: 2.2rem 1.1rem;
+  color: var(--blanco);
+  text-shadow: 0 2px 18px rgba(25, 0, 5, 0.55);
+}
+
+.subtitulo-portada {
+  margin-bottom: 0.6rem;
+  color: var(--arena-dorada);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.nombres-principales {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  color: var(--blanco);
+  font-family: var(--manuscrita);
+  font-size: clamp(4.4rem, 19vw, 8rem);
+  font-weight: 400;
+  line-height: 0.84;
+}
+
+.nombres-principales .ampersand {
+  margin: -0.12em 0;
+  color: var(--arena-dorada);
+  font-size: 0.55em;
+}
+
+.fecha-principal {
+  margin: 1.8rem 0 0;
+  color: var(--champagne);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+}
+
+.contenido-portada .linea-dorada {
+  margin-inline: auto;
+}
+
+.frase-portada {
+  width: min(560px, 100%);
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.91);
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.indicador-desplazamiento {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.25rem;
+  transform: translateX(-50%);
+  color: var(--champagne);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.indicador-desplazamiento i {
+  animation: flotacion 1.8s ease-in-out infinite;
+}
+
+@keyframes flotacion {
+  50% {
+    transform: translateY(0.4rem);
+  }
+}
+
+/* Cuenta regresiva */
+.cuenta-regresiva {
+  text-align: center;
+}
+
+.fecha-completa {
+  color: #6b565b;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
+.contador {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.unidad-contador {
+  position: relative;
+  display: grid;
+  min-height: 112px;
+  align-content: center;
+  border: var(--borde);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 12px 25px rgba(59, 1, 11, 0.08);
+}
+
+.unidad-contador::after {
+  position: absolute;
+  inset: 0.4rem;
+  border: 1px solid rgba(184, 139, 66, 0.18);
+  border-radius: 13px;
+  content: "";
+}
+
+.unidad-contador strong {
+  color: var(--borgona);
+  font-family: var(--serif);
+  font-size: 2.65rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.unidad-contador span {
+  color: #6f5b60;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.mensaje-contador {
+  margin: 1.5rem 0 0;
+  color: var(--borgona);
+  font-family: var(--manuscrita);
+  font-size: 3rem;
+}
+
+/* Historia */
+.nuestra-historia {
+  background: var(--marfil);
+}
+
+.historia-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.marco-imagen {
+  position: relative;
+  width: min(380px, 90%);
+  margin-inline: auto;
+  padding: 0.65rem;
+  border: var(--borde);
+  border-radius: 160px 160px 20px 20px;
+}
+
+.marco-imagen::before {
+  position: absolute;
+  z-index: -1;
+  inset: 1.2rem -1rem -1rem 1rem;
+  border-radius: inherit;
+  background: var(--champagne);
+  content: "";
+}
+
+.marco-imagen img {
+  width: 100%;
+  height: 450px;
+  aspect-ratio: auto;
+  border-radius: 150px 150px 14px 14px;
+  object-fit: cover;
+}
+
+.detalle-botanico {
+  position: absolute;
+  right: -1.4rem;
+  bottom: 1rem;
+  display: grid;
+  width: 4.2rem;
+  height: 4.2rem;
+  place-items: center;
+  border: 1px solid var(--dorado);
+  border-radius: 50%;
+  color: var(--dorado);
+  background: var(--marfil);
+  font-family: var(--serif);
+  font-size: 2rem;
+}
+
+.historia-contenido {
+  text-align: center;
+}
+
+.historia-contenido .linea-dorada {
+  margin-inline: auto;
+}
+
+.historia-contenido > p:last-child {
+  max-width: 42rem;
+  margin-inline: auto;
+  color: #67565a;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
+/* Itinerario */
+.itinerario::before {
+  position: absolute;
+  top: -6rem;
+  right: -8rem;
+  width: 22rem;
+  height: 22rem;
+  border: 1px solid rgba(242, 217, 160, 0.12);
+  border-radius: 50%;
+  content: "";
+}
+
+.encabezado-seccion {
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.tarjetas-itinerario {
+  display: grid;
+  gap: 1rem;
+}
+
+.tarjeta-evento {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.3rem;
+  border: 1px solid rgba(242, 217, 160, 0.35);
+  border-radius: var(--radio);
+  background: rgba(255, 250, 240, 0.075);
+  box-shadow: 0 18px 35px rgba(25, 0, 5, 0.18);
+  text-align: center;
+  backdrop-filter: blur(7px);
+}
+
+.tarjeta-evento::after {
+  position: absolute;
+  right: -2rem;
+  bottom: -2rem;
+  width: 7rem;
+  height: 7rem;
+  border: 1px solid rgba(242, 217, 160, 0.18);
+  border-radius: 50%;
+  content: "";
+}
+
+.icono-evento {
+  display: grid;
+  width: 4.3rem;
+  height: 4.3rem;
+  margin: 0 auto 0.8rem;
+  place-items: center;
+  border: 1px solid rgba(242, 217, 160, 0.62);
+  border-radius: 50%;
+  color: var(--arena-dorada);
+  font-size: 1.45rem;
+}
+
+.numero-evento {
+  margin-bottom: 0;
+  color: rgba(242, 217, 160, 0.5);
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+}
+
+.tarjeta-evento h3 {
+  margin: 0.2rem 0 0.8rem;
+}
+
+.horario {
+  color: var(--arena-dorada);
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.lugar {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.tarjeta-evento address {
+  min-height: 3.4rem;
+  margin-bottom: 1.3rem;
+  color: rgba(255, 250, 240, 0.72);
+  font-size: 0.84rem;
+}
+
+.boton-secundario {
+  border-color: var(--arena-dorada);
+  color: var(--vino-profundo);
+  background: var(--champagne);
+}
+
+.boton-secundario:hover {
+  color: var(--blanco);
+}
+
+/* Vestimenta */
+.tarjeta-destacada {
+  padding: 2.6rem 1.25rem;
+  border: var(--borde);
+  border-radius: var(--radio);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.77), rgba(255, 250, 240, 0.66)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(117, 22, 45, 0.02) 0 1px,
+      transparent 1px 5px
+    );
+  box-shadow: var(--sombra);
+  text-align: center;
+}
+
+.iconos-vestimenta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--borgona);
+  font-size: 2.5rem;
+}
+
+.iconos-vestimenta span {
+  width: 2.3rem;
+  height: 1px;
+  background: var(--dorado);
+}
+
+.tipo-vestimenta {
+  margin-bottom: 0.7rem;
+  color: var(--borgona);
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.colores-reservados {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.color {
+  display: block;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 3px solid var(--blanco);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(59, 1, 11, 0.18);
+}
+
+.color.blanco {
+  background: #fff;
+}
+
+.color.champagne {
+  background: var(--champagne);
+}
+
+.color.borgona {
+  background: var(--borgona);
+}
+
+/* Galería */
+.galeria {
+  background: var(--marfil);
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.foto-galeria {
+  position: relative;
+  overflow: hidden;
+  min-height: 12rem;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: var(--champagne);
+  box-shadow: 0 10px 24px rgba(59, 1, 11, 0.12);
+  cursor: zoom-in;
+}
+
+.foto-galeria:nth-child(3n + 1) {
+  grid-row: span 2;
+}
+
+.foto-galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 420ms ease,
+    filter 420ms ease;
+}
+
+.foto-galeria::after {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inset: 0;
+  color: var(--blanco);
+  background: rgba(59, 1, 11, 0.18);
+  content: "\f00e";
+  font-family: "Font Awesome 6 Free";
+  font-size: 1.5rem;
+  font-weight: 900;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.foto-galeria:hover img {
+  transform: scale(1.04);
+  filter: saturate(0.8);
+}
+
+.foto-galeria:hover::after {
+  opacity: 1;
+}
+
+/* Regalos */
+.regalo-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.icono-regalo {
+  display: grid;
+  width: 7rem;
+  height: 7rem;
+  margin: auto;
+  place-items: center;
+  border: 1px solid var(--dorado);
+  border-radius: 50%;
+  color: var(--borgona);
+  background: rgba(255, 255, 255, 0.37);
+  font-size: 2.5rem;
+}
+
+.regalo-contenido {
+  text-align: center;
+}
+
+.informacion-regalos {
+  color: var(--vino-profundo);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+#regalos .informacion-regalos {
+    max-width: 650px;
+    margin-inline: auto;
+}
+
+.regalos {
+background:
+linear-gradient(
+rgba(242,229,198,0.65),
+rgba(253,247,236,0.85)
+);
+}
+
+.cuenta-regalo {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.6rem;
+  padding: 1.3rem;
+  border: 1px dashed rgba(117, 22, 45, 0.4);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.cuenta-regalo span {
+  color: #6f5b60;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.cuenta-regalo strong {
+  overflow-wrap: anywhere;
+  color: var(--vino-profundo);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+}
+
+.boton-copiar {
+  justify-self: center;
+}
+
+/* Confirmación */
+.confirmacion-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.confirmacion-intro {
+  text-align: center;
+}
+
+.nota-formulario {
+  color: rgba(255, 250, 240, 0.65);
+  font-size: 0.78rem;
+}
+
+.formulario-rsvp {
+  padding: 1.4rem;
+  border: 1px solid rgba(242, 217, 160, 0.35);
+  border-radius: var(--radio);
+  background: rgba(255, 250, 240, 0.08);
+  box-shadow: 0 20px 40px rgba(25, 0, 5, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.campo-formulario {
+  min-width: 0;
+  margin: 0 0 1.15rem;
+  padding: 0;
+  border: 0;
+}
+
+.campo-formulario label,
+.campo-formulario legend {
+  display: block;
+  margin-bottom: 0.42rem;
+  color: var(--champagne);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="number"],
+.campo-formulario textarea {
+  width: 100%;
+  border: 1px solid rgba(242, 217, 160, 0.35);
+  border-radius: 11px;
+  color: var(--blanco);
+  background: rgba(255, 255, 255, 0.1);
+  transition:
+    border 180ms ease,
+    background 180ms ease;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="number"] {
+  min-height: 48px;
+  padding: 0 0.9rem;
+}
+
+.campo-formulario textarea {
+  resize: vertical;
+  padding: 0.8rem 0.9rem;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+  border-color: var(--arena-dorada);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.campo-formulario textarea::placeholder {
+  color: rgba(255, 255, 255, 0.47);
+}
+
+.opciones-radio {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.opciones-radio label {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid rgba(242, 217, 160, 0.25);
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.opciones-radio input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--arena-dorada);
+}
+
+.mensaje-error,
+.estado-formulario {
+  display: block;
+  min-height: 1.2em;
+  margin-top: 0.28rem;
+  color: #ffd4b5;
+  font-size: 0.72rem;
+}
+
+.boton-whatsapp {
+  width: 100%;
+  border-color: #8fd5a5;
+  background: #19733f;
+}
+
+/* Compartir */
+.icono-camara {
+  display: grid;
+  width: 4.8rem;
+  height: 4.8rem;
+  margin: 0 auto 1rem;
+  place-items: center;
+  border: 1px solid var(--dorado);
+  border-radius: 50%;
+  color: var(--borgona);
+  font-size: 1.8rem;
+}
+
+.compartir-fotos .tarjeta-destacada > p:not(.etiqueta-seccion) {
+  max-width: 38rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Pie */
+.pie-pagina {
+  padding: 4.5rem 0 7.5rem;
+  color: rgba(255, 250, 240, 0.78);
+  background:
+    radial-gradient(
+      circle at center top,
+      rgba(242, 217, 160, 0.08),
+      transparent 18rem
+    ),
+    #250006;
+  text-align: center;
+}
+
+.pie-pagina .monograma {
+  margin-bottom: 0.6rem;
+  color: var(--champagne);
+}
+
+.fecha-pie {
+  color: var(--arena-dorada);
+  font-family: var(--serif);
+  letter-spacing: 0.22em;
+}
+
+/* Controles */
+.controles-flotantes {
+  position: fixed;
+  z-index: 90;
+  right: 0.8rem;
+  bottom: 6.5rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.boton-flotante {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(242, 217, 160, 0.7);
+  border-radius: 50%;
+  color: var(--champagne);
+  background: rgba(59, 1, 11, 0.92);
+  box-shadow: 0 9px 22px rgba(25, 0, 5, 0.25);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.boton-flotante:hover {
+  transform: translateY(-2px);
+}
+
+.boton-volver {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.boton-volver.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navegacion-secciones {
+  position: fixed;
+  z-index: 80;
+  right: 0.75rem;
+  bottom: 0.65rem;
+  left: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0.42rem;
+  border: 1px solid rgba(242, 217, 160, 0.34);
+  border-radius: 18px;
+  background: rgba(59, 1, 11, 0.95);
+  box-shadow: 0 12px 32px rgba(25, 0, 5, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.navegacion-secciones a {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.12rem;
+  border-radius: 13px;
+  color: rgba(255, 250, 240, 0.72);
+  font-size: 0.6rem;
+  text-decoration: none;
+}
+
+.navegacion-secciones i {
+  font-size: 0.95rem;
+}
+
+.navegacion-secciones a:hover,
+.navegacion-secciones a.activo {
+  color: var(--arena-dorada);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Lightbox */
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 3.8rem 0.35rem 1rem;
+  background: rgba(18, 0, 4, 0.94);
+  backdrop-filter: blur(10px);
+}
+
+.lightbox figure {
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.lightbox img {
+  width: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  margin: auto;
+  border: 1px solid rgba(242, 217, 160, 0.45);
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.lightbox figcaption {
+  margin-top: 0.65rem;
+  color: var(--champagne);
+  font-size: 0.75rem;
+}
+
+.lightbox button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(242, 217, 160, 0.48);
+  border-radius: 50%;
+  color: var(--champagne);
+  background: rgba(117, 22, 45, 0.66);
+  cursor: pointer;
+}
+
+.lightbox-cerrar {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+}
+
+.aviso-copiado {
+  position: fixed;
+  z-index: 110;
+  bottom: 6.8rem;
+  left: 50%;
+  visibility: hidden;
+  min-width: 15rem;
+  padding: 0.75rem 1rem;
+  transform: translate(-50%, 1rem);
+  border: 1px solid var(--dorado);
+  border-radius: 999px;
+  color: var(--blanco);
+  background: var(--vino-profundo);
+  box-shadow: var(--sombra);
+  opacity: 0;
+  text-align: center;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms ease;
+}
+
+.aviso-copiado.visible {
+  visibility: visible;
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.aviso-sin-js {
+  position: fixed;
+  z-index: 12000;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 12px;
+  color: var(--blanco);
+  background: var(--borgona);
+  text-align: center;
+}
+
+/* Aparición al hacer scroll */
+.revelar {
+  transform: translateY(22px);
+  opacity: 0;
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 700ms ease;
+}
+
+.revelar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (min-width: 620px) {
+  .seccion {
+    padding: 7rem 0;
+  }
+
+  .contador {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .foto-galeria {
+    min-height: 16rem;
+  }
+
+  .opciones-radio {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pie-pagina {
+    padding-bottom: 5rem;
+  }
+
+  .navegacion-secciones {
+    top: 50%;
+    right: 1rem;
+    bottom: auto;
+    left: auto;
+    grid-template-columns: 1fr;
+    transform: translateY(-50%);
+  }
+
+  .navegacion-secciones a {
+    width: 64px;
+  }
+
+  .controles-flotantes {
+    right: 1.25rem;
+    bottom: 1.25rem;
+  }
+
+  .aviso-copiado {
+    bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 860px) {
+  .historia-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 5rem;
+  }
+
+  .historia-contenido {
+    text-align: left;
+  }
+
+  .historia-contenido .linea-dorada {
+    margin-left: 0;
+  }
+
+  .tarjetas-itinerario {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tarjeta-evento {
+    padding: 2.4rem 1.4rem;
+  }
+
+  .regalo-grid {
+    grid-template-columns: 0.4fr 1fr;
+    gap: 4rem;
+  }
+
+  .regalo-contenido {
+    text-align: left;
+  }
+
+  .cuenta-regalo {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .cuenta-regalo > span {
+    grid-column: 1 / -1;
+  }
+
+  .confirmacion-grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .confirmacion-intro {
+    text-align: left;
+  }
+
+  .formulario-rsvp {
+    padding: 2rem;
+  }
+
+  .marco-portada {
+    inset: 1.6rem;
+    border-radius: 240px 240px 34px 34px;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .escena-apertura {
+    transform: scale(0.78);
+  }
+}
+
+.sello-cera {
+  width: 3.8rem;
+  height: 3.8rem;
+  margin-top: 0.75rem;
+}
+
+.ornamento-inferior,
+.nota-musica {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .revelar {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+
+/* TARJETA CUENTA - ESTILO BODA PREMIUM */
+
+.tarjeta-cuenta {
+  position: relative;
+  max-width: 460px;
+  margin: 35px auto;
+  padding: 45px 40px;
+  background: linear-gradient(145deg, #6d102c, #4b0015);
+
+  border: 2px solid #c9a45c;
+  border-radius: 35px;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 45px rgba(92, 45, 20, 0.18),
+    inset 0 0 0 8px rgba(201, 164, 92, 0.12);
+}
+
+/* Marco interior elegante */
+
+.tarjeta-cuenta::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(201, 164, 92, 0.45);
+  border-radius: 25px;
+  pointer-events: none;
+}
+
+/* Decoración superior */
+
+.tarjeta-cuenta::after {
+  content: "✦  ♡  ✦";
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  color: #b58a3c;
+  font-size: 18px;
+}
+
+/* Banco */
+
+.banco-cuenta {
+  margin-top: 15px;
+
+  font-size: 38px;
+
+  letter-spacing: 8px;
+
+  font-weight: 700;
+
+  color: #7a1634;
+}
+
+/* Tipo de cuenta */
+
+.tarjeta-cuenta h3 {
+
+    margin:12px 0 25px;
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:24px;
+
+    color:#f6e3b0;
+
+}
+
+
+/* Bloques internos */
+
+.dato-cuenta {
+  background: rgba(255, 248, 230, 0.95);
+
+  padding: 18px;
+
+  margin: 15px 0;
+
+  border-radius: 20px;
+
+  border: 1px solid #dfc27c;
+}
+
+/* Texto pequeño */
+
+.dato-cuenta span {
+  display: block;
+
+  font-size: 14px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: #9b8052;
+}
+
+/* números */
+
+.dato-cuenta strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 22px;
+
+  letter-spacing: 2px;
+
+  color: #6d102c;
+}
+
+/* Botón */
+
+.boton-copiar {
+  margin-top: 25px;
+
+  padding: 14px 35px;
+
+  border-radius: 40px;
+
+  background: #7a1634;
+
+  border: 2px solid #c9a45c;
+
+  color: white;
+
+  font-size: 16px;
+
+  box-shadow: 0 10px 20px rgba(122, 22, 52, 0.25);
+}

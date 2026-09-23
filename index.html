@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Invitación al matrimonio de Renzo Rodríguez y Stephanie Jorge, el 7 de noviembre de 2026."
+    />
+    <meta name="theme-color" content="#3b010b" />
+    <title>Renzo &amp; Stephanie | Nuestra boda</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Great+Vibes&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <body class="bloqueo-scroll">
+    <a class="enlace-saltar" href="#contenido-principal">Saltar al contenido</a>
+
+    <!-- Pantalla de apertura: sobre rectangular cerrado -->
+    <div
+      class="pantalla-apertura"
+      id="pantalla-apertura"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="titulo-apertura"
+    >
+      <div class="escena-sobre">
+        <div class="sobre-cerrado">
+          <!-- Cuerpo rectangular del sobre -->
+          <div class="cuerpo-sobre" aria-hidden="true">
+            <div class="pliegue pliegue-izquierdo"></div>
+            <div class="pliegue pliegue-derecho"></div>
+            <div class="pliegue pliegue-inferior"></div>
+          </div>
+
+          <!-- Solapa superior -->
+          <div class="solapa-sobre">
+            <div class="contenido-solapa">
+              <p class="frase-sobre" id="titulo-apertura">
+                <span>Tenemos una invitación especial</span>
+                <span>para ti</span>
+              </p>
+
+              <h1 class="nombres-sobre">
+                <span data-config="novios.novio">Renzo</span>
+                <span class="ampersand-sobre">&amp;</span>
+                <span data-config="novios.novia">Stephanie</span>
+              </h1>
+            </div>
+          </div>
+
+          <p class="fecha-sobre" data-config="boda.fechaPuntos">
+            07 · 11 · 2026
+          </p>
+
+          <!-- Sello dorado sin iniciales -->
+          <button
+            class="sello-sobre"
+            id="boton-abrir"
+            type="button"
+            aria-label="Abrir la invitación"
+            title="Abrir invitación"
+          >
+            <span class="ornamento-sello" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <p class="indicacion-sobre">
+          Presiona el sello para abrir la invitación
+        </p>
+      </div>
+    </div>
+
+    <audio id="musica-boda" preload="metadata" loop>
+      <source src="assets/audio/elvis.mp3" type="audio/mpeg" />
+      Tu navegador no puede reproducir este archivo de audio.
+    </audio>
+
+    <div class="controles-flotantes" aria-label="Controles de la invitación">
+      <button
+        class="boton-flotante"
+        id="boton-musica"
+        type="button"
+        aria-label="Reproducir música"
+        aria-pressed="false"
+      >
+        <i class="fa-solid fa-music" aria-hidden="true"></i>
+      </button>
+      <button
+        class="boton-flotante boton-volver"
+        id="boton-volver"
+        type="button"
+        aria-label="Volver al inicio"
+      >
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="navegacion-secciones" aria-label="Navegación de la invitación">
+      <a href="#inicio">
+        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+        <span>Inicio</span>
+      </a>
+      <a href="#itinerario">
+        <i class="fa-regular fa-clock" aria-hidden="true"></i>
+        <span>Itinerario</span>
+      </a>
+
+      <a href="#confirmacion">
+        <i class="fa-regular fa-circle-check" aria-hidden="true"></i>
+        <span>Confirmar</span>
+      </a>
+    </nav>
+
+    <main id="contenido-principal">
+      <section
+        class="seccion portada-principal"
+        id="inicio"
+        aria-labelledby="titulo-portada"
+      >
+        <img
+          class="imagen-portada"
+          src="assets/images/portada.jpg"
+          alt="Fotografía principal de Renzo y Stephanie"
+          width="1600"
+          height="2000"
+          fetchpriority="high"
+        />
+        <div class="velo-portada" aria-hidden="true"></div>
+        <div class="marco-portada" aria-hidden="true"></div>
+
+        <div class="contenido-portada revelar">
+          <p class="subtitulo-portada">¡Nos casamos!</p>
+          <h2 class="nombres-principales" id="titulo-portada">
+            <span data-config="novios.novio">Renzo</span>
+            <span class="ampersand">&amp;</span>
+            <span data-config="novios.novia">Stephanie</span>
+          </h2>
+          <p class="fecha-principal" data-config="boda.fechaNumerica">
+            07/11/2026
+          </p>
+          <span class="linea-dorada" aria-hidden="true"></span>
+          <p class="frase-portada" data-config="textos.frasePrincipal">
+            Nuestra historia de amor comienza un nuevo capítulo; acompáñanos a
+            celebrar este día tan especial.
+          </p>
+        </div>
+
+        <a class="indicador-desplazamiento" href="#cuenta-regresiva">
+          <span>Descubre nuestra invitación</span>
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </a>
+      </section>
+
+      <section
+        class="seccion seccion-clara cuenta-regresiva"
+        id="cuenta-regresiva"
+        aria-labelledby="titulo-cuenta"
+      >
+        <div class="contenedor revelar">
+          <p class="etiqueta-seccion">Falta muy poco</p>
+          <h2 id="titulo-cuenta">Cuenta regresiva</h2>
+          <p class="fecha-completa" data-config="boda.fechaCompleta">
+            Sábado 7 de noviembre de 2026
+          </p>
+          <div class="ramita-divisora" aria-hidden="true">❦</div>
+
+          <div class="contador" id="contador" role="timer" aria-live="polite">
+            <div class="unidad-contador">
+              <strong id="dias">000</strong>
+              <span>Días</span>
+            </div>
+            <div class="unidad-contador">
+              <strong id="horas">00</strong>
+              <span>Horas</span>
+            </div>
+            <div class="unidad-contador">
+              <strong id="minutos">00</strong>
+              <span>Minutos</span>
+            </div>
+            <div class="unidad-contador">
+              <strong id="segundos">00</strong>
+              <span>Segundos</span>
+            </div>
+          </div>
+          <p class="mensaje-contador" id="mensaje-contador" hidden>
+            ¡Llegó nuestro gran día!
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="seccion nuestra-historia"
+        id="historia"
+        aria-labelledby="titulo-historia"
+      >
+        <div class="contenedor historia-grid revelar">
+          <div class="marco-imagen">
+            <img
+              src="assets/images/historia.jpeg"
+              alt="Un momento especial en la historia de Renzo y Stephanie"
+              width="1200"
+              height="1500"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="detalle-botanico" aria-hidden="true">❦</span>
+          </div>
+
+          <div class="historia-contenido">
+            <p class="etiqueta-seccion">Un camino compartido</p>
+            <h2 id="titulo-historia" data-config="historia.titulo">
+              Nuestra historia
+            </h2>
+            <span class="linea-dorada" aria-hidden="true"></span>
+            <p data-config="historia.descripcion">
+              Entre encuentros, aprendizajes y sueños compartidos, elegimos
+              caminar juntos. Hoy queremos celebrar este nuevo comienzo con las
+              personas que hacen nuestra historia aún más especial.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="seccion seccion-vino itinerario"
+        id="itinerario"
+        aria-labelledby="titulo-itinerario"
+      >
+        <div class="contenedor">
+          <div class="encabezado-seccion revelar">
+            <p class="etiqueta-seccion">Celebremos juntos</p>
+            <h2 id="titulo-itinerario">Itinerario</h2>
+            <p>
+              Estos son los momentos que compartiremos durante nuestro gran día.
+            </p>
+          </div>
+
+          <div class="tarjetas-itinerario">
+            <article class="tarjeta-evento revelar">
+              <div class="icono-evento" aria-hidden="true">
+                <i class="fa-solid fa-file-signature"></i>
+              </div>
+              <p class="numero-evento">01</p>
+              <h3>Matrimonio civil</h3>
+              <p class="horario" data-config="eventos.civil.horario">
+                4:00 p. m. – 5:00 p. m.
+              </p>
+              <p class="lugar" data-config="eventos.civil.lugar">
+                [NOMBRE DEL LOCAL CIVIL]
+              </p>
+              <address data-config="eventos.civil.direccion">
+                [DIRECCIÓN DEL MATRIMONIO CIVIL]
+              </address>
+              <a
+                class="boton boton-secundario"
+                data-map-link="civil"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-disabled="true"
+              >
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                Ver ubicación
+              </a>
+            </article>
+
+            <article class="tarjeta-evento revelar">
+              <div class="icono-evento" aria-hidden="true">
+                <i class="fa-solid fa-church"></i>
+              </div>
+              <p class="numero-evento">02</p>
+              <h3>Ceremonia religiosa</h3>
+              <p class="horario" data-config="eventos.religiosa.horario">
+                7:00 p. m. – 7:45 p. m.
+              </p>
+              <p class="lugar" data-config="eventos.religiosa.lugar">
+                [NOMBRE DE LA IGLESIA]
+              </p>
+              <address data-config="eventos.religiosa.direccion">
+                [DIRECCIÓN DE LA IGLESIA]
+              </address>
+              <a
+                class="boton boton-secundario"
+                data-map-link="religiosa"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-disabled="true"
+              >
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                Ver ubicación
+              </a>
+            </article>
+
+            <article class="tarjeta-evento revelar">
+              <div class="icono-evento" aria-hidden="true">
+                <i class="fa-solid fa-champagne-glasses"></i>
+              </div>
+              <p class="numero-evento">03</p>
+              <h3>Recepción</h3>
+              <p class="horario" data-config="eventos.recepcion.horario">
+                8:00 p. m. – 2:00 a. m.
+              </p>
+              <p class="lugar" data-config="eventos.recepcion.lugar">
+                [NOMBRE DEL LOCAL DE RECEPCIÓN]
+              </p>
+              <address data-config="eventos.recepcion.direccion">
+                [DIRECCIÓN DE LA RECEPCIÓN]
+              </address>
+              <a
+                class="boton boton-secundario"
+                data-map-link="recepcion"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-disabled="true"
+              >
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                Ver ubicación
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="seccion seccion-clara vestimenta"
+        id="vestimenta"
+        aria-labelledby="titulo-vestimenta"
+      >
+        <div class="contenedor tarjeta-destacada revelar">
+          <div class="iconos-vestimenta" aria-hidden="true">
+            <i class="fa-solid fa-user-tie"></i>
+            <span></span>
+            <i class="fa-solid fa-person-dress"></i>
+          </div>
+          <p class="etiqueta-seccion">Para nuestra celebración</p>
+          <h2 id="titulo-vestimenta">Código de vestimenta</h2>
+          <p class="tipo-vestimenta" data-config="vestimenta.codigo">
+            Traje elegante
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="seccion seccion-arena regalos"
+        id="regalos"
+        aria-labelledby="titulo-regalos"
+      >
+        <div class="contenedor regalo-grid revelar">
+          <div class="icono-regalo" aria-hidden="true">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <div class="regalo-contenido">            
+            <h2 id="titulo-regalos">Regalos</h2>
+            <p data-config="regalos.mensaje">
+              Lo más valioso será compartir este día contigo. Los que deseen obsequiarnos algo para nuestra
+              luna de miel , les dejamos esta información con mucho cariño.
+            </p>
+
+            <div class="tarjeta-cuenta">
+              <div class="banco-cuenta">BCP</div>
+
+              <h3>Cuenta de ahorros</h3>
+
+
+              <div class="dato-cuenta">
+                <span>Número de cuenta</span>
+                <strong data-config="regalos.cciSoles"> 19492196850029 </strong>
+              </div>
+
+              <div class="dato-cuenta">
+                <span>CCI</span>
+                <strong> 00219419219685002994 </strong>
+              </div>
+
+              <button
+                class="boton boton-copiar"
+                type="button"
+                data-copy-config="regalos.cciSoles"
+                data-copy-label="CCI en soles"
+              >
+                Copiar CCI
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="seccion seccion-vino confirmacion"
+        id="confirmacion"
+        aria-labelledby="titulo-confirmacion"
+      >
+        <div class="contenedor confirmacion-grid">
+          <div class="confirmacion-intro revelar">
+            <p class="etiqueta-seccion">RSVP</p>
+            <h2 id="titulo-confirmacion">Confirmación de asistencia</h2>
+            <p>
+              Nos encantará contar contigo. Por favor, confirma tu asistencia
+              hasta el
+              <strong data-config="confirmacion.fechaLimite"
+                >24 de octubre de 2026</strong
+              >.
+            </p>
+            <p class="nota-formulario">
+              Tus respuestas se enviarán directamente por WhatsApp.              
+            </p>
+          </div>
+
+          <form class="formulario-rsvp revelar" id="formulario-rsvp" novalidate>
+            <div class="campo-formulario">
+              <label for="nombre-invitado">Nombre completo</label>
+              <input
+                id="nombre-invitado"
+                name="nombre"
+                type="text"
+                autocomplete="name"
+                minlength="3"
+                required
+              />
+              <small class="mensaje-error" id="error-nombre"></small>
+            </div>
+
+            <fieldset class="campo-formulario">
+              <legend>¿Asistirás?</legend>
+              <div class="opciones-radio">
+                <label>
+                  <input type="radio" name="asistencia" value="Sí" required />
+                  <span>Sí, asistiré</span>
+                </label>
+                <label>
+                  <input type="radio" name="asistencia" value="No" required />
+                  <span>No podré asistir</span>
+                </label>
+              </div>
+              <small class="mensaje-error" id="error-asistencia"></small>
+            </fieldset>
+
+            <div class="campo-formulario">
+          
+              
+            </div>
+
+            <div class="campo-formulario">
+              <label for="mensaje-novios">Mensaje para los novios</label>
+              <textarea
+                id="mensaje-novios"
+                name="mensaje"
+                rows="4"
+                maxlength="500"
+                placeholder="Escribe aquí tu mensaje..."
+              ></textarea>
+            </div>
+
+            <button class="boton boton-whatsapp" type="submit">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              Confirmar por WhatsApp
+            </button>
+            <p
+              class="estado-formulario"
+              id="estado-formulario"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+
+      <section
+        class="seccion seccion-clara compartir-fotos"
+        id="compartir-fotos"
+        aria-labelledby="titulo-compartir"
+      >
+        <div class="contenedor tarjeta-destacada revelar">
+          <div class="icono-camara" aria-hidden="true">
+            <i class="fa-solid fa-camera-retro"></i>
+          </div>
+          <p class="etiqueta-seccion">Revive cada momento</p>
+          <h2 id="titulo-compartir">Comparte tus fotografías</h2>
+          <p data-config="album.mensaje">
+            Después de la celebración podrás compartir aquí las fotografías que
+            tomes durante nuestro gran día.
+          </p>
+          <a
+            class="boton"
+            id="enlace-album"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-disabled="true"
+          >
+            <i class="fa-brands fa-google-drive" aria-hidden="true"></i>
+            Compartir fotos del evento
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie-pagina">
+      <div class="contenedor revelar">
+        <p class="monograma" aria-label="Renzo y Stephanie">
+          R <span>&amp;</span> S
+        </p>
+        <p>Gracias por ser parte de nuestra historia</p>
+        <p class="fecha-pie" data-config="boda.fechaNumerica">07/11/2026</p>
+      </div>
+    </footer>
+
+    <div
+      class="aviso-copiado"
+      id="aviso-copiado"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+    <noscript>
+      <p class="aviso-sin-js">
+        Activa JavaScript para utilizar la cuenta regresiva, la música, la
+        galería y la confirmación por WhatsApp.
+      </p>
+    </noscript>
+  </body>
+</html>
