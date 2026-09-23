@@ -74,7 +74,7 @@ const INVITACION = {
   album: {
     mensaje:
       "Después de la celebración podrás compartir aquí las fotografías que tomes durante nuestro gran día.",
-    enlace: "[ENLACE DEL ÁLBUM DE FOTOS]",
+    enlace: "https://forms.gle/YBgWmD8zoW8HzWC16",
   },
 };
 
