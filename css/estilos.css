@@ -596,9 +596,9 @@ address {
 
   left: 50%;
 
-  width: 90px;
-
-  height: 90px;
+  width: clamp(44px, 13%, 90px);
+  height: auto;
+  aspect-ratio: 1;
 
   overflow: hidden;
 
@@ -2050,5 +2050,3 @@ address {
     transform: rotateX(0deg);
   }
 }
-
-
