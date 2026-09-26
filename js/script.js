@@ -16,7 +16,7 @@ const INVITACION = {
   },
 
   boda: {
-    fechaISO: "2026-11-07T16:00:00-05:00",
+    fechaISO: "2026-11-07T18:40:00-05:00",
     fechaNumerica: "07/11/2026",
     fechaPuntos: "07 · 11 · 2026",
     fechaCompleta: "Sábado 7 de noviembre de 2026",
@@ -34,12 +34,6 @@ const INVITACION = {
   },
 
   eventos: {
-    civil: {
-      horario: "3:40 p. m. – 5:00 p. m.",
-      lugar: "CLUB AOPIP OFICIAL - SURCO",
-      direccion: "Av.Casuarinas 450, Santiago de Surco",
-      maps: "https://maps.app.goo.gl/4VRptw1821XmzfLu7?g_st=iw",
-    },
     religiosa: {
       horario: "6:40 p. m. – 7:45 p. m.",
       lugar: "Parroquia San Francisco de Asis",
@@ -67,7 +61,7 @@ const INVITACION = {
     cciDolares: "00219119632513411355",
   },
   confirmacion: {
-    fechaLimite: "05 de octubre de 2026",
+    fechaLimite: "10 de octubre de 2026",
     whatsapp: "+51 991675256",
   },
 
