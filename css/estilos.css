@@ -268,36 +268,65 @@ address {
   overflow: hidden;
   padding: clamp(1rem, 3.2vh, 2.25rem) 1rem;
   isolation: isolate;
-  background: radial-gradient(
-    ellipse at 50% 38%,
-    #f2ebe3 0%,
-    #eee6dd 43%,
-    #e7ddd3 72%,
-    #dbcec1 100%
-  );
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(255, 250, 240, 0.85) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      transparent 55%,
+      rgba(120, 84, 48, 0.22) 100%
+    ),
+    linear-gradient(160deg, #f1e6d3 0%, #e9dcc5 50%, #dfcdb0 100%);
 }
 
-/* Fondo marfil cálido, cercano al de la fotografía de referencia */
+/* Textura: lino fino + rombos dorados muy suaves */
 .pantalla-apertura::before {
   position: absolute;
   z-index: -1;
   inset: 0;
   content: "";
   pointer-events: none;
-  opacity: 0.52;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E"),
-    radial-gradient(
-      circle at 17% 13%,
-      rgba(255, 255, 255, 0.58),
-      transparent 28%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23b88b42' stroke-width='.6' opacity='.45'%3E%3Cpath d='M36 0 72 36 36 72 0 36Z'/%3E%3C/g%3E%3Cg fill='%23b88b42' opacity='.45'%3E%3Ccircle cx='36' cy='0' r='1.3'/%3E%3Ccircle cx='36' cy='72' r='1.3'/%3E%3Ccircle cx='0' cy='36' r='1.3'/%3E%3Ccircle cx='72' cy='36' r='1.3'/%3E%3Cpath d='M36 31 38 36 36 41 34 36Z'/%3E%3C/g%3E%3C/svg%3E"),
+    repeating-linear-gradient(
+      0deg,
+      rgba(120, 90, 55, 0.035) 0 1px,
+      transparent 1px 3px
     ),
-    radial-gradient(circle at 82% 82%, rgba(116, 86, 65, 0.07), transparent 38%);
+    repeating-linear-gradient(
+      90deg,
+      rgba(120, 90, 55, 0.03) 0 1px,
+      transparent 1px 3px
+    );
   background-size:
     220px 220px,
-    100% 100%,
-    100% 100%;
-  background-blend-mode: soft-light, normal, normal;
+    72px 72px,
+    auto,
+    auto;
+  background-position: center;
+  background-blend-mode: soft-light, normal, normal, normal;
+  -webkit-mask-image: radial-gradient(
+    ellipse at 50% 48%,
+    transparent 22%,
+    #000 70%
+  );
+  mask-image: radial-gradient(ellipse at 50% 48%, transparent 22%, #000 70%);
+}
+
+/* Marco dorado doble alrededor de la pantalla */
+.pantalla-apertura::after {
+  position: absolute;
+  z-index: -1;
+  inset: clamp(0.6rem, 2.2vw, 1.4rem);
+  content: "";
+  pointer-events: none;
+  border: 1px solid rgba(184, 139, 66, 0.55);
+  outline: 1px solid rgba(184, 139, 66, 0.3);
+  outline-offset: -7px;
 }
 
 .escena-sobre {
@@ -309,116 +338,27 @@ address {
   perspective: 1900px;
 }
 
-/* Sombra corta y cálida, pegada al sobre. Evita el gran halo gris. */
-.escena-sobre::before {
-  position: absolute;
-  z-index: -1;
-  top: 1.4%;
-  right: 1.8%;
-  bottom: 3.55rem;
-  left: 1.8%;
-  content: "";
-  border-radius: 5px;
-  background: rgba(69, 42, 29, 0.14);
-  filter: blur(22px);
-  transform: translate(15px, 25px) scale(0.98);
-  pointer-events: none;
-}
-
 .sobre-cerrado {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1536 / 1024;
   overflow: visible;
-  border: 1px solid rgba(58, 19, 24, 0.66);
   border-radius: 3px;
-  background: linear-gradient(145deg, #7d3045 0%, #641d32 45%, #430d1d 100%);
+  background: linear-gradient(180deg, #5c0f19 0%, #8a1a24 100%) 50% 3.3% / 88.4%
+    11% no-repeat;
   perspective: 1900px;
   transform-style: preserve-3d;
   isolation: isolate;
-  box-shadow:
-    0 45px 70px rgba(35, 10, 15, 0.35),
-    0 20px 35px rgba(35, 10, 15, 0.25),
-    inset 0 0 50px rgba(255, 255, 255, 0.08),
-    inset 0 -20px 40px rgba(20, 0, 5, 0.25);
+  box-shadow: none;
 
   --papel-fino: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='5' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
   --papel-grueso: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.19' numOctaves='4' seed='27' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.20'/%3E%3C/svg%3E");
-}
-
-/* Bisel mínimo de cartulina real */
-.sobre-cerrado::before {
-  position: absolute;
-  z-index: 30;
-  inset: 0;
-  content: "";
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    inset 4px 0 9px rgba(255, 225, 210, 0.025),
-    inset -5px 0 10px rgba(25, 2, 7, 0.14),
-    inset 0 4px 8px rgba(255, 239, 229, 0.025),
-    inset 0 -7px 13px rgba(25, 2, 7, 0.16);
-}
-
-/* Canto inferior, apenas visible */
-.sobre-cerrado::after {
-  position: absolute;
-  z-index: -1;
-  right: 0.45%;
-  bottom: -0.28rem;
-  left: 0.45%;
-  height: 0.38rem;
-  content: "";
-  border-radius: 0 0 4px 4px;
-  background: linear-gradient(180deg, #4b1820 0%, #351017 100%);
-  box-shadow: 0 4px 5px rgba(45, 22, 17, 0.18);
-  transform: translateZ(-2px);
-  pointer-events: none;
 }
 
 /* =====================================================
    PAPEL BASE. La mayor parte del sobre es una sola pieza
    continua para evitar el aspecto de figura geométrica.
 ===================================================== */
-.cuerpo-sobre {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  overflow: hidden;
-  border-radius: inherit;
-  transform: translateZ(0);
-  background-image:
-    var(--papel-fino), var(--papel-grueso),
-    radial-gradient(
-      ellipse at 50% -8%,
-      rgba(255, 255, 255, 0.12) 0%,
-      transparent 36%
-    ),
-    radial-gradient(
-      ellipse at 14% 54%,
-      rgba(255, 255, 255, 0.025) 0%,
-      transparent 38%
-    ),
-    radial-gradient(
-      ellipse at 87% 63%,
-      rgba(25, 2, 7, 0.12) 0%,
-      transparent 45%
-    ),
-    linear-gradient(180deg, #8b4055 0%, #763247 35%, #612536 70%, #4b1728 100%);
-  background-size:
-    160px 160px,
-    280px 280px,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%;
-  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-blend-mode: soft-light, soft-light, normal, normal, normal, normal;
-  box-shadow:
-    inset 0 0 54px rgba(26, 3, 8, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
 
 /* Fibra + microvariaciones de iluminación, como papel fotografiado */
 .cuerpo-sobre::before {
@@ -588,7 +528,7 @@ address {
    El volumen viene de la sombra de contacto, no de cambiar
    radicalmente el color.
 ===================================================== */
-.solapa-sobre {
+/*.solapa-sobre {
   position: absolute;
   z-index: 5;
   top: -1px;
@@ -642,210 +582,40 @@ address {
     drop-shadow(0 5px 5px rgba(30, 3, 8, 0.18));
 }
 
-/* Cara posterior al abrir */
-.solapa-sobre::after {
-  transform: rotateX(180deg) translateZ(1px);
-  background-image:
-    var(--papel-fino), linear-gradient(180deg, #682c35 0%, #552029 100%);
-  background-size:
-    160px 160px,
-    100% 100%;
-  background-blend-mode: soft-light, normal;
-  box-shadow: inset 0 -28px 42px rgba(22, 2, 7, 0.15);
-}
-
-/* Texto sobre la solapa */
-.contenido-solapa {
-  position: absolute;
-  z-index: 2;
-  top: 9.1%;
-  right: 7.2%;
-  left: 7.2%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  backface-visibility: hidden;
-  transform: translateZ(7px);
-}
-
-.frase-sobre {
-  display: flex;
-  max-width: 94%;
-  flex-direction: column;
-  margin: 0 0 clamp(0.66rem, 1.75vw, 1.05rem);
-  color: #f3dfb4;
-  font-family: var(--sans);
-  font-size: clamp(0.56rem, 1.62vw, 0.94rem);
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  line-height: 1.42;
-  text-transform: uppercase;
-  text-shadow:
-    0 -1px 0 rgba(255, 249, 220, 0.1),
-    0 1.2px 2px rgba(38, 5, 11, 0.38);
-}
-
-.frase-sobre span {
-  display: block;
-}
-
-.nombres-sobre {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 0;
-  color: #efd79d;
-  font-family: var(--manuscrita);
-  font-size: clamp(3.35rem, 11.25vw, 6.45rem);
-  font-weight: 400;
-  line-height: 0.71;
-  text-shadow:
-    0 -1px 0 rgba(255, 248, 216, 0.2),
-    0 1px 0 rgba(117, 73, 25, 0.34),
-    0 2.5px 4px rgba(38, 4, 10, 0.28);
-}
-
-.nombres-sobre > span:first-child,
-.nombres-sobre > span:last-child {
-  display: block;
-  white-space: nowrap;
-}
-
-.ampersand-sobre {
-  margin: clamp(0.13rem, 0.7vw, 0.38rem) 0 clamp(0.03rem, 0.35vw, 0.18rem);
-  color: #e4c37d;
-  font-size: 0.51em;
-  line-height: 0.77;
-}
-
-.fecha-sobre {
-  position: absolute;
-  z-index: 7;
-  bottom: 5.25%;
-  left: 50%;
-  width: 100%;
-  margin: 0;
-  transform: translateX(-50%) translateZ(6px);
-  color: #ebca8d;
-  font-family: var(--sans);
-  font-size: clamp(0.62rem, 1.7vw, 0.98rem);
-  font-weight: 500;
-  letter-spacing: 0.31em;
-  line-height: 1;
-  text-align: center;
-  text-shadow: 0 1.3px 2px rgba(36, 4, 9, 0.4);
-}
-
-/* =====================================================
+/*=====================================================
    SELLO DE CERA. Borde suave e irregular, sin picos de
    engranaje. Más grande y con una sombra de contacto real.
 ===================================================== */
-.sello-sobre {
 
+.sello-sobre {
   position: absolute;
 
-  z-index: 30;
+  z-index: 10;
 
-  top: 57.25%;
+  top: 65%;
+
   left: 50%;
 
-  width: 120px;
-  height: 120px;
+  width: 90px;
+
+  height: 90px;
+
+  overflow: hidden;
 
   padding: 0;
 
-  transform: translate(-50%, -50%);
-
-  background: transparent;
-
   border: none;
 
-  opacity: 0;
+  background: none;
 
-  cursor: pointer;
+  transform: translate(-50%, -50%);
 
-  appearance: none;
-
-}
-
-.sello-sobre::before,
-.sello-sobre::after {
-  position: absolute;
-  content: "";
-  pointer-events: none;
-}
-
-/* Reborde prensado */
-.sello-sobre::before {
-  inset: 12.5%;
-  border: 2px solid rgba(94, 50, 6, 0.74);
-  border-radius: 51% 49% 52% 48% / 48% 53% 47% 52%;
-  box-shadow:
-    0 0 0 2px rgba(255, 232, 151, 0.31),
-    inset 2px 2px 3px rgba(255, 244, 185, 0.42),
-    inset -2px -2px 4px rgba(83, 40, 4, 0.4),
-    0 1px 1px rgba(75, 38, 4, 0.24);
-}
-
-/* Ondulación superficial de la cera */
-.sello-sobre::after {
-  inset: 3.5%;
-  border-radius: 45% 55% 52% 48% / 55% 44% 56% 45%;
-  background:
-    radial-gradient(
-      circle at 29% 21%,
-      rgba(255, 249, 205, 0.38),
-      transparent 18%
-    ),
-    radial-gradient(circle at 73% 72%, rgba(98, 51, 5, 0.13), transparent 27%),
-    radial-gradient(
-      ellipse at 50% 8%,
-      rgba(255, 236, 164, 0.13),
-      transparent 30%
-    );
-  box-shadow: inset 0 0 0 1px rgba(255, 244, 193, 0.12);
-}
-
-.ornamento-sello {
-  position: relative;
-  z-index: 2;
-  display: block;
-  width: 32%;
-  aspect-ratio: 1;
-  transform: rotate(45deg) translateZ(2px);
-  border: 2px solid rgba(87, 44, 5, 0.8);
-  background: rgba(236, 190, 87, 0.14);
-  box-shadow:
-    0 0 0 1px rgba(255, 232, 145, 0.29),
-    inset 1px 1px 1px rgba(255, 245, 186, 0.22),
-    inset -1px -1px 1px rgba(82, 40, 4, 0.27);
-}
-
-.ornamento-sello::before,
-.ornamento-sello::after {
-  position: absolute;
-  content: "";
-  border: 1.5px solid rgba(87, 44, 5, 0.76);
-}
-
-.ornamento-sello::before {
-  inset: 22%;
-  border-radius: 50%;
-}
-
-.ornamento-sello::after {
-  inset: -33%;
-  transform: rotate(45deg);
-  border-radius: 50%;
+  transition: all 400ms ease;
 }
 
 .sello-sobre:hover,
 .sello-sobre:focus-visible {
-  transform: translate(-50%, -50%) rotate(-0.5deg) translateZ(28px) scale(1.035);
-  filter: brightness(1.035) saturate(1.02)
-    drop-shadow(0 12px 6px rgba(28, 8, 3, 0.45))
-    drop-shadow(0 2px 1px rgba(32, 9, 3, 0.35));
+  filter: brightness(1.05);
 }
 
 .sello-sobre:focus-visible {
@@ -866,25 +636,21 @@ address {
 }
 
 /* =====================================================
-   ANIMACIÓN. Conserva el comportamiento existente.
+  ANIMACIÓN. Conserva el comportamiento existente.
 ===================================================== */
 .pantalla-apertura.abierta {
   pointer-events: none;
   animation: ocultar-apertura 300ms 1.12s ease forwards;
 }
+
 .pantalla-apertura.abierta .sello-sobre {
+  opacity: 0;
 
-  animation: presionar-sello 300ms ease forwards;
-
+  transform: translate(-50%, -80%) scale(0.6);
 }
-
-
 .pantalla-apertura.abierta .sobre-cerrado {
-
-  animation: retirar-sobre-imagen 1100ms 350ms cubic-bezier(.62,0,.28,1) forwards;
-
+  animation: none;
 }
-
 
 .pantalla-apertura.abierta .indicacion-sobre {
   opacity: 0;
@@ -892,72 +658,37 @@ address {
 }
 
 @keyframes presionar-sello {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 
-    0% {
+  50% {
+    transform: translate(-50%, -50%) scale(0.82);
+  }
 
-        transform:
-        translate(-50%, -50%)
-        scale(1);
-
-    }
-
-
-    50% {
-
-        transform:
-        translate(-50%, -50%)
-        scale(.82);
-
-    }
-
-
-    100% {
-
-        transform:
-        translate(-50%, -50%)
-        scale(1);
-
-    }
-
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
-
-
 @keyframes retirar-sobre-imagen {
+  0% {
+    transform: translateY(0) scale(1);
 
+    opacity: 1;
+  }
 
-    0% {
+  40% {
+    transform: translateY(-20px) scale(1.04);
 
-        transform:
-        translateY(0)
-        scale(1);
+    opacity: 1;
+  }
 
-        opacity:1;
+  100% {
+    transform: translateY(-120px) scale(1.15);
 
-    }
-
-
-    40% {
-
-        transform:
-        translateY(-20px)
-        scale(1.04);
-
-        opacity:1;
-
-    }
-
-
-    100% {
-
-        transform:
-        translateY(-120px)
-        scale(1.15);
-
-        opacity:0;
-
-    }
-
+    opacity: 0;
+  }
 }
 
 @keyframes retirar-sobre {
@@ -2187,6 +1918,76 @@ address {
 .imagen-sobre-portada {
   position: absolute;
 
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 1;
+}
+
+.solapa-real {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 10;
+
+  transform-origin: 50% 0%;
+
+  transform-style: preserve-3d;
+
+  overflow: hidden;
+
+  backface-visibility: hidden;
+  /*transition: transform 900ms cubic-bezier(0.62, 0, 0.28, 1);*/
+}
+
+.solapa-real img {
+  width: 92%;
+
+  height: 92%;
+
+  object-fit: cover;
+  margin-left: 4%;
+  margin-top: -2%;
+
+  display: block;
+
+  backface-visibility: hidden;
+}
+
+/*.pantalla-apertura.abierta .solapa-real {
+  transform: rotateX(-110deg);
+}*/
+
+.carta-interna {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%) translateY(80px);
+
+  transition: transform 1s ease;
+
+  z-index: 3;
+}
+
+.pantalla-apertura.abierta .carta-interna {
+  transform: translateX(-50%) translateY(-120px);
+}
+
+.sobre-base {
+  position: absolute;
+
   top: 0;
   left: 0;
 
@@ -2195,12 +1996,59 @@ address {
 
   object-fit: cover;
 
-  z-index: 10;
+  z-index: 1;
+
+  filter: drop-shadow(0 2px 2px rgba(59, 1, 11, 0.65))
+    drop-shadow(0 14px 20px rgba(69, 42, 29, 0.65))
+    drop-shadow(0 30px 45px rgba(69, 42, 29, 0.55));
 }
-.cuerpo-sobre,
-.solapa-sobre,
-.frase-sobre,
-.nombres-sobre,
-.fecha-sobre {
-  display: none;
+
+.solapa-abierta {
+  position: absolute;
+  z-index: 15;
+  top: -48.3%; /* sube la imagen: la base queda en el borde superior */
+  left: 3.7%;
+  width: 92.6%; /* mismo ancho que el sobre */
+  height: auto;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: 50% 55.4%; /* la bisagra es la base del triángulo */
+  transform: scaleY(0);
 }
+
+/* 1) La solapa cerrada gira hacia arriba desde su borde superior */
+.pantalla-apertura.abierta .solapa-real {
+  animation: cerrar-solapa 450ms cubic-bezier(0.55, 0, 0.85, 0.4) forwards;
+  pointer-events: none;
+}
+
+/* 2) Cuando queda de canto, aparece la abierta y se despliega hacia arriba */
+.pantalla-apertura.abierta .solapa-abierta {
+  animation: desplegar-solapa 500ms 450ms cubic-bezier(0.15, 0.6, 0.3, 1)
+    forwards;
+}
+
+@keyframes cerrar-solapa {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes desplegar-solapa {
+  from {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(-90deg);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateX(0deg);
+  }
+}
+
+

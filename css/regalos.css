@@ -1,0 +1,255 @@
+/* =====================================================
+   REGALOS · ESTILO LUJO
+===================================================== */
+.regalos-lujo {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(242, 217, 160, 0.35), transparent 22rem),
+    radial-gradient(circle at 88% 85%, rgba(117, 22, 45, 0.07), transparent 24rem),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 0 72 36 36 72 0 36Z' fill='none' stroke='%23b88b42' stroke-width='.5' opacity='.18'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #fbf5ea 0%, #f3e8d4 100%);
+  background-size: auto, auto, 72px 72px, auto;
+}
+
+.regalos-lujo__grid {
+  display: grid;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Foto con arco y marco dorado */
+.regalos-lujo__foto {
+  position: relative;
+  width: min(380px, 88%);
+  margin: 0 auto;
+  padding: 0.7rem;
+  border: 1px solid rgba(184, 139, 66, 0.7);
+  border-radius: 200px 200px 18px 18px;
+}
+
+.regalos-lujo__foto::before {
+  position: absolute;
+  z-index: -1;
+  inset: 1.4rem 1.1rem -1.1rem -1.1rem;
+  content: "";
+  border-radius: inherit;
+  background: linear-gradient(160deg, #75162d, #3b010b);
+}
+
+.regalos-lujo__foto img {
+  width: 100%;
+  height: clamp(380px, 62vw, 520px);
+  border-radius: 190px 190px 12px 12px;
+  object-fit: cover;
+}
+
+.regalos-lujo__medalla {
+  position: absolute;
+  bottom: -1.9rem;
+  left: 50%;
+  display: grid;
+  width: 3.9rem;
+  height: 3.9rem;
+  place-items: center;
+  transform: translateX(-50%);
+  border: 1px solid var(--dorado);
+  border-radius: 50%;
+  color: var(--dorado);
+  background: var(--marfil);
+  box-shadow: 0 0 0 5px var(--marfil), 0 8px 18px rgba(59, 1, 11, 0.18);
+  font-size: 1.35rem;
+}
+
+/* Texto */
+.regalos-lujo__contenido {
+  text-align: center;
+}
+
+.regalos-lujo__contenido h2 {
+  margin-bottom: 0.4rem;
+}
+
+.regalos-lujo__ornamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+  color: var(--dorado);
+  font-size: 0.7rem;
+  font-style: normal;
+}
+
+.regalos-lujo__ornamento span {
+  width: 4.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dorado));
+}
+
+.regalos-lujo__ornamento span:last-child {
+  background: linear-gradient(90deg, var(--dorado), transparent);
+}
+
+.regalos-lujo__mensaje {
+  max-width: 34rem;
+  margin: 0 auto 2.2rem;
+  color: #5d4a4e;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+/* Tarjeta de la cuenta */
+.cuenta-lujo {
+  position: relative;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 2.4rem 1.6rem 1.6rem;
+  border: 1px solid rgba(215, 187, 125, 0.75);
+  border-radius: 6px;
+  color: var(--champagne);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(242, 217, 160, 0.14), transparent 60%),
+    linear-gradient(150deg, #6d102c 0%, #4b0717 55%, #3b010b 100%);
+  box-shadow:
+    0 22px 45px rgba(59, 1, 11, 0.28),
+    0 4px 10px rgba(59, 1, 11, 0.18);
+}
+
+.cuenta-lujo::before {
+  position: absolute;
+  inset: 8px;
+  content: "";
+  border: 1px solid rgba(215, 187, 125, 0.35);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.cuenta-lujo__banco {
+  margin: 0;
+  color: var(--arena-dorada);
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  line-height: 1;
+  text-indent: 0.4em;
+}
+
+.cuenta-lujo__tipo {
+  margin: 0.6rem 0 1.4rem;
+  color: rgba(242, 229, 198, 0.75);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.cuenta-lujo__fila {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0.2rem;
+  border-top: 1px solid rgba(215, 187, 125, 0.28);
+  text-align: left;
+}
+
+.cuenta-lujo__fila span {
+  display: block;
+  color: var(--dorado-claro);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.cuenta-lujo__fila strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #fff8ea;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 4.6vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+.regalos-lujo .cuenta-lujo__copiar {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(215, 187, 125, 0.7);
+  border-radius: 999px;
+  color: var(--arena-dorada);
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.regalos-lujo .cuenta-lujo__copiar span {
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+
+.regalos-lujo .cuenta-lujo__copiar:hover {
+  color: var(--vino-profundo);
+  background: var(--arena-dorada);
+}
+
+@media (max-width: 420px) {
+  .regalos-lujo .cuenta-lujo__copiar span {
+    display: none;
+  }
+}
+
+@media (min-width: 860px) {
+  .regalos-lujo__grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 5rem;
+  }
+}
+
+
+/* Título de cada cuenta dentro de la tarjeta única */
+.cuenta-lujo__moneda {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1.5rem 0 0.3rem;
+  color: var(--arena-dorada);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.cuenta-lujo__moneda::before,
+.cuenta-lujo__moneda::after {
+  flex: 1;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(215, 187, 125, 0.6));
+}
+
+.cuenta-lujo__moneda::after {
+  background: linear-gradient(90deg, rgba(215, 187, 125, 0.6), transparent);
+}
+
+/* Dentro de cada cuenta, solo una línea fina entre número y CCI */
+.cuenta-lujo__moneda + .cuenta-lujo__fila {
+  border-top: none;
+}

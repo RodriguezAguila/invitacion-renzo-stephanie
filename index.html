@@ -23,6 +23,8 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/regalos.css" />
+
     <script src="js/script.js" defer></script>
   </head>
 
@@ -39,37 +41,20 @@
     >
       <div class="escena-sobre">
         <div class="sobre-cerrado">
-          <img
-            src="assets/images/sobre-portada.png"
-            class="imagen-sobre-portada"
-            alt="Sobre de invitación"
-          />
-          <!-- Cuerpo rectangular del sobre -->
-          <div class="cuerpo-sobre" aria-hidden="true">
-            <div class="pliegue pliegue-izquierdo"></div>
-            <div class="pliegue pliegue-derecho"></div>
-            <div class="pliegue pliegue-inferior"></div>
+          <!-- Cuerpo real del sobre -->
+          <img src="assets/images/sobre-base.png" class="sobre-base" />
+          <!-- SOLAPA ABIERTA -->
+          <img src="assets/images/solapa-abierta.png" class="solapa-abierta" />
+          <!-- Solapa real -->
+
+          <div class="solapa-real">
+            <img src="assets/images/solapa.png" />
           </div>
 
-          <!-- Solapa superior -->
-          <div class="solapa-sobre">
-            <div class="contenido-solapa">
-              <p class="frase-sobre" id="titulo-apertura">
-                <span>Tenemos una invitación especial</span>
-                <span>para ti</span>
-              </p>
-
-              <h1 class="nombres-sobre">
-                <span data-config="novios.novio">Renzo</span>
-                <span class="ampersand-sobre">&amp;</span>
-                <span data-config="novios.novia">Stephanie</span>
-              </h1>
-            </div>
+          <!--
+          <div class="carta-interna">
           </div>
-
-          <p class="fecha-sobre" data-config="boda.fechaPuntos">
-            07 · 11 · 2026
-          </p>
+          -->
 
           <!-- Sello dorado sin iniciales -->
           <button
@@ -79,7 +64,7 @@
             aria-label="Abrir la invitación"
             title="Abrir invitación"
           >
-            <span class="ornamento-sello" aria-hidden="true"></span>
+            <img src="assets/images/sello.png" alt="Sello de cera" />
           </button>
         </div>
 
@@ -362,50 +347,112 @@
       </section>
 
       <section
-        class="seccion seccion-arena regalos"
+        class="seccion regalos-lujo"
         id="regalos"
         aria-labelledby="titulo-regalos"
       >
-        <div class="contenedor regalo-grid revelar">
-          <div class="icono-regalo" aria-hidden="true">
-            <i class="fa-solid fa-gift"></i>
-          </div>
-          <div class="regalo-contenido">
+        <div class="contenedor regalos-lujo__grid revelar">
+          <figure class="regalos-lujo__foto">
+            <img
+              src="assets/images/regalos.jpeg"
+              alt="Renzo y Stephanie"
+              loading="lazy"
+            />
+            <span class="regalos-lujo__medalla" aria-hidden="true">
+              <i class="fa-solid fa-gift"></i>
+            </span>
+          </figure>
+
+          <div class="regalos-lujo__contenido">
+            <p class="etiqueta-seccion">Luna de miel</p>
             <h2 id="titulo-regalos">Regalos</h2>
-            <p data-config="regalos.mensaje">
+            <div class="regalos-lujo__ornamento" aria-hidden="true">
+              <span></span><i>&#9670;</i><span></span>
+            </div>
+            <p class="regalos-lujo__mensaje" data-config="regalos.mensaje">
               Lo más valioso será compartir este día contigo. Los que deseen
-              obsequiarnos algo para nuestra luna de miel , les dejamos esta
+              obsequiarnos algo para nuestra luna de miel, les dejamos esta
               información con mucho cariño.
             </p>
+                          <div class="cuenta-lujo">
+              <p class="cuenta-lujo__banco">BCP</p>
 
-            <div class="tarjeta-cuenta">
-              <div class="banco-cuenta">BCP</div>
+              <p class="cuenta-lujo__moneda">Cuenta en Soles</p>
 
-              <h3>Cuenta de ahorros</h3>
-
-              <div class="dato-cuenta">
-                <span>Número de cuenta</span>
-                <strong data-config="regalos.cciSoles"> 19492196850029 </strong>
+              <div class="cuenta-lujo__fila">
+                <div>
+                  <span>Número de cuenta</span>
+                  <strong data-config="regalos.numeroCuenta">19492196850029</strong>
+                </div>
+                <button
+                  class="boton-copiar cuenta-lujo__copiar"
+                  type="button"
+                  data-copy-config="regalos.numeroCuenta"
+                  data-copy-label="Número de cuenta"
+                  aria-label="Copiar número de cuenta"
+                >
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span>Copiar</span>
+                </button>
               </div>
 
-              <div class="dato-cuenta">
-                <span>CCI</span>
-                <strong> 00219419219685002994 </strong>
+              <div class="cuenta-lujo__fila">
+                <div>
+                  <span>CCI</span>
+                  <strong data-config="regalos.cci">00219419219685002994</strong>
+                </div>
+                <button
+                  class="boton-copiar cuenta-lujo__copiar"
+                  type="button"
+                  data-copy-config="regalos.cci"
+                  data-copy-label="CCI"
+                  aria-label="Copiar CCI"
+                >
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span>Copiar</span>
+                </button>
               </div>
 
-              <button
-                class="boton boton-copiar"
-                type="button"
-                data-copy-config="regalos.cciSoles"
-                data-copy-label="CCI en soles"
-              >
-                Copiar CCI
-              </button>
+              <p class="cuenta-lujo__moneda">Cuenta en Dólares</p>
+
+              <div class="cuenta-lujo__fila">
+                <div>
+                  <span>Número de cuenta</span>
+                  <strong data-config="regalos.numeroCuentaDolares">19196325134113</strong>
+                </div>
+                <button
+                  class="boton-copiar cuenta-lujo__copiar"
+                  type="button"
+                  data-copy-config="regalos.numeroCuentaDolares"
+                  data-copy-label="Número de cuenta en dólares"
+                  aria-label="Copiar número de cuenta en dólares"
+                >
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span>Copiar</span>
+                </button>
+              </div>
+
+              <div class="cuenta-lujo__fila">
+                <div>
+                  <span>CCI</span>
+                  <strong data-config="regalos.cciDolares">00219119632513411355</strong>
+                </div>
+                <button
+                  class="boton-copiar cuenta-lujo__copiar"
+                  type="button"
+                  data-copy-config="regalos.cciDolares"
+                  data-copy-label="CCI en dólares"
+                  aria-label="Copiar CCI en dólares"
+                >
+                  <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  <span>Copiar</span>
+                </button>
+              </div>
             </div>
+            
           </div>
         </div>
       </section>
-
       <section
         class="seccion seccion-vino confirmacion"
         id="confirmacion"

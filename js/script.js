@@ -55,17 +55,17 @@ const INVITACION = {
   },
 
   vestimenta: {
-    codigo: "Traje elegante"    
+    codigo: "Traje elegante",
   },
 
   regalos: {
     mensaje:
-      "Lo más valioso será compartir este día contigo. Los que deseen obsequiarnos algo para nuestra luna de miel , les dejamos esta información con mucho cariño.",
-        cuenta:
-                
-        "Mi número de cuenta BCP Soles es 19492196850029.Mi número de cuenta interbancaria es 00219419219685002994."
+      "Lo más valioso será compartir este día contigo. Los que deseen obsequiarnos algo para nuestra luna de miel, les dejamos esta información con mucho cariño.",
+    numeroCuentaSoles: "19492196850029",
+    cci: "00219419219685002994",
+    numeroCuentaDolares: "19196325134113",
+    cciDolares: "00219119632513411355",
   },
-
   confirmacion: {
     fechaLimite: "05 de octubre de 2026",
     whatsapp: "+51 991675256",
@@ -86,7 +86,9 @@ const INVITACION = {
 */
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
-const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+const $$ = (selector, parent = document) => [
+  ...parent.querySelectorAll(selector),
+];
 
 const obtenerValor = (ruta) =>
   ruta.split(".").reduce((valor, clave) => valor?.[clave], INVITACION);
@@ -106,7 +108,11 @@ function cargarDatos() {
 
   $$("[data-map-link]").forEach((enlace) => {
     const evento = INVITACION.eventos[enlace.dataset.mapLink];
-    prepararEnlace(enlace, evento?.maps, "Agrega el enlace de Google Maps en js/script.js");
+    prepararEnlace(
+      enlace,
+      evento?.maps,
+      "Agrega el enlace de Google Maps en js/script.js",
+    );
   });
 
   prepararEnlace(
@@ -155,7 +161,7 @@ function configurarApertura() {
     reproducirMusica();
 
     const reducirMovimiento = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     const tiempoApertura = reducirMovimiento ? 50 : 1450;
@@ -184,9 +190,7 @@ function actualizarIconoMusica(reproduciendo) {
     "aria-label",
     reproduciendo ? "Pausar música" : "Reproducir música",
   );
-  icono.className = reproduciendo
-    ? "fa-solid fa-pause"
-    : "fa-solid fa-music";
+  icono.className = reproduciendo ? "fa-solid fa-pause" : "fa-solid fa-music";
 }
 
 async function reproducirMusica() {
@@ -321,7 +325,8 @@ function configurarNavegacion() {
       entradas.forEach((entrada) => {
         if (!entrada.isIntersecting) return;
         enlaces.forEach((enlace) => {
-          const activo = enlace.getAttribute("href") === `#${entrada.target.id}`;
+          const activo =
+            enlace.getAttribute("href") === `#${entrada.target.id}`;
           enlace.classList.toggle("activo", activo);
           if (activo) enlace.setAttribute("aria-current", "location");
           else enlace.removeAttribute("aria-current");
@@ -401,12 +406,7 @@ function configurarGaleria() {
   const anterior = $("#lightbox-anterior");
   const siguiente = $("#lightbox-siguiente");
 
-  if (
-    !lightbox ||
-    !imagenAmpliada ||
-    !descripcion ||
-    botones.length === 0
-  ) {
+  if (!lightbox || !imagenAmpliada || !descripcion || botones.length === 0) {
     return;
   }
 
@@ -469,21 +469,13 @@ function configurarFormulario() {
   const formulario = $("#formulario-rsvp");
   if (!formulario) return;
 
-  $$('input[name="asistencia"]', formulario).forEach((radio) => {
-    radio.addEventListener("change", () => {
-      const noAsiste = radio.checked && radio.value === "No";
-      if (noAsiste) acompanantes.value = "0";
-      acompanantes.disabled = noAsiste;
-    });
-  });
-
   formulario.addEventListener("submit", (evento) => {
     evento.preventDefault();
     limpiarErroresFormulario();
 
     const datos = new FormData(formulario);
     const nombre = String(datos.get("nombre") || "").trim();
-    const asistencia = String(datos.get("asistencia") || "");  
+    const asistencia = String(datos.get("asistencia") || "");
     const mensaje = String(datos.get("mensaje") || "").trim();
     let formularioValido = true;
 
@@ -495,19 +487,23 @@ function configurarFormulario() {
     if (!asistencia) {
       $("#error-asistencia").textContent = "Selecciona una opción.";
       formularioValido = false;
-    }  
+    }
 
     if (!formularioValido) {
       $("#estado-formulario").textContent =
         "Revisa los campos señalados antes de continuar.";
-      formulario.querySelector(".mensaje-error:not(:empty)")?.parentElement
-        ?.querySelector("input, textarea")
+      formulario
+        .querySelector(".mensaje-error:not(:empty)")
+        ?.parentElement?.querySelector("input, textarea")
         ?.focus();
       return;
     }
 
     const telefono = INVITACION.confirmacion.whatsapp.replace(/\D/g, "");
-    if (esDatoPendiente(INVITACION.confirmacion.whatsapp) || telefono.length < 8) {
+    if (
+      esDatoPendiente(INVITACION.confirmacion.whatsapp) ||
+      telefono.length < 8
+    ) {
       $("#estado-formulario").textContent =
         "Falta agregar el número de WhatsApp en js/script.js.";
       return;
