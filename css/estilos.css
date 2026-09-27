@@ -1701,8 +1701,8 @@ address {
   .historia-contenido .linea-dorada {
     margin-left: 0;
   }
-
   .tarjetas-itinerario {
+    /* grid-template-columns: repeat(3, minmax(0, 1fr)); */
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 780px;
     margin-inline: auto;
