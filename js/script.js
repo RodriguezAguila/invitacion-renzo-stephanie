@@ -68,7 +68,7 @@ const INVITACION = {
     cciDolares: "00219119632513411355",
   },
   confirmacion: {
-    fechaLimite: "10 de octubre de 2026",
+    fechaLimite: "20 de octubre de 2026",
     whatsapp: "+51 991675256",
   },
 
